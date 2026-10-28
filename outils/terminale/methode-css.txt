@@ -1,0 +1,84 @@
+  /* méthode du bac */
+  .entree-methode { display: flex; align-items: center; gap: 12px; margin: 18px 0 6px; padding: 10px 16px 10px 8px; border-radius: 18px; text-decoration: none; color: #fff; background: linear-gradient(135deg, #1F4E5F, #3B6E44); box-shadow: 0 5px 0 #15343F; }
+  .entree-methode:active { transform: translateY(3px); box-shadow: 0 2px 0 #15343F; }
+  .em-fig { width: 72px; height: 60px; flex: none; }
+  .em-fig svg { width: 100%; height: 100%; display: block; }
+  .em-txt { display: flex; flex-direction: column; gap: 2px; }
+  .em-txt strong { font-size: 18px; font-weight: 800; }
+  .em-txt span { font-size: 13.5px; opacity: .92; }
+  .met-ligne { display: flex; align-items: center; gap: 12px; padding: 12px 14px; margin-bottom: 8px; border-radius: 12px; border: 1px solid var(--line); border-left: 5px solid var(--histoire); background: var(--panel); color: inherit; text-decoration: none; }
+  .met-ligne.geo { border-left-color: var(--geo); }
+  .met-ligne:hover { border-color: var(--accent); }
+  .met-ligne-txt { display: flex; flex-direction: column; gap: 2px; flex: 1; min-width: 0; }
+  .met-ligne-txt strong { font-size: 15px; line-height: 1.3; }
+  .met-ligne-txt span { font-size: 12.5px; color: var(--faint); }
+  .met-badge { flex: none; font-size: 12.5px; font-weight: 700; padding: 4px 9px; border-radius: 99px; background: var(--warnSoft); color: var(--warn); }
+  .met-badge.bien { background: var(--okSoft); color: var(--ok); }
+  .met-badge.vide { background: var(--accentSoft); color: var(--accent); font-weight: 600; }
+  .met-structure { display: grid; gap: 8px; }
+  .met-struct { padding: 10px 14px; border-radius: 12px; background: var(--panel); border: 1px solid var(--line); }
+  .met-struct-tete { display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+  .met-struct-tete strong { font-size: 15px; }
+  .met-struct-tete span { font-size: 12px; color: var(--faint); white-space: nowrap; }
+  .met-struct-barre { height: 8px; border-radius: 99px; background: var(--line); margin: 6px 0 4px; overflow: hidden; }
+  .met-struct-barre span { display: block; height: 100%; border-radius: 99px; background: var(--accent); }
+  .met-struct.c1 .met-struct-barre span { background: var(--histoire); }
+  .met-struct.c2 .met-struct-barre span { background: var(--ok); }
+  .met-struct.c3 .met-struct-barre span { background: var(--warn); }
+  .met-struct p { margin: 4px 0 0; font-size: 13.5px; color: var(--sub); line-height: 1.4; }
+  .met-figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; }
+  .met-figtype { display: flex; flex-direction: column; gap: 4px; padding: 12px 14px; border-radius: 12px; background: var(--panel); border: 1px solid var(--line); }
+  .met-figtype span { font-size: 13px; color: var(--sub); }
+  .met-figrangee { display: flex; gap: 6px; flex-wrap: wrap; }
+  .met-fig { display: inline-block; width: 40px; height: 28px; flex: none; background: #fff; border-radius: 6px; }
+  .met-fig svg { width: 100%; height: 100%; display: block; }
+  .met-etapes-liste { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  .met-etape { display: flex; gap: 12px; padding: 12px 14px; border-radius: 12px; background: var(--panel); border: 1px solid var(--line); }
+  .met-etape ul { margin: 6px 0 0; padding-left: 18px; font-size: 14px; color: var(--sub); line-height: 1.45; }
+  .met-num { flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); color: var(--bg); font-weight: 700; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+  .met-exemple { margin: 8px 0 0; padding: 8px 12px; border-radius: 8px; background: var(--accentSoft); font-family: Fraunces, serif; font-size: 14.5px; line-height: 1.45; }
+  .met-exemple small, .met-morceau small { display: block; font-family: Inter, sans-serif; font-size: 11px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: var(--accent); margin-bottom: 2px; }
+  .met-duo { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 10px; margin-top: 18px; }
+  .met-col { padding: 12px 14px; border-radius: 12px; }
+  .met-col ul { margin: 6px 0 0; padding-left: 18px; font-size: 14px; line-height: 1.45; }
+  .met-col.oui { background: var(--okSoft); } .met-col.oui strong { color: var(--ok); }
+  .met-col.non { background: var(--koSoft); } .met-col.non strong { color: var(--ko); }
+  .met-progres { list-style: none; margin: 10px 0 16px; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; counter-reset: met; }
+  .met-progres li { counter-increment: met; font-size: 12px; font-weight: 600; padding: 5px 10px; border-radius: 99px; background: var(--panel); border: 1px solid var(--line); color: var(--faint); }
+  .met-progres li::before { content: counter(met) ". "; }
+  .met-progres li.actuel { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+  .met-progres li.fait { background: var(--okSoft); border-color: var(--okSoft); color: var(--ok); }
+  .met-titre-etape { font-family: Fraunces, serif; font-size: 22px; margin: 4px 0 2px; }
+  .met-sujet { font-family: Fraunces, serif; font-size: 19px; line-height: 1.4; padding: 14px 16px; border-radius: 12px; background: var(--histoireSoft); border-left: 4px solid var(--histoire); margin: 12px 0; }
+  .met-argument { font-size: 16px; line-height: 1.45; padding: 12px 14px; border-radius: 12px; background: var(--panel); border: 1.5px dashed var(--accent); margin: 6px 0 12px; }
+  .met-expl { margin: 12px 0 0; padding: 10px 14px; border-radius: 10px; font-size: 14.5px; line-height: 1.45; display: flex; gap: 10px; align-items: center; }
+  .met-expl.ok { background: var(--okSoft); } .met-expl.ok strong { color: var(--ok); }
+  .met-expl.ko { background: var(--koSoft); } .met-expl.ko strong { color: var(--ko); }
+  .met-suite { margin-top: 14px; }
+  .met-vf { display: grid; grid-template-columns: 1fr 1fr; gap: 9px; }
+  .met-vf .option { justify-content: center; font-weight: 600; }
+  .met-figchoix { display: grid; grid-template-columns: repeat(3, 1fr); gap: 9px; }
+  .met-figchoix .option { flex-direction: column; align-items: center; text-align: center; font-weight: 600; }
+  .met-tuiles { display: grid; gap: 8px; margin-top: 10px; }
+  .met-tuiles .tuile { text-align: left; }
+  .met-plan-fait { margin: 6px 0; padding-left: 24px; font-weight: 600; color: var(--ok); }
+  .met-plan-fait li { padding: 4px 0; }
+  .met-plan-detail { padding-left: 22px; margin: 0; }
+  .met-plan-detail > li { margin-bottom: 10px; }
+  .met-plan-detail ul { margin: 4px 0 0; padding-left: 18px; font-size: 14px; color: var(--sub); line-height: 1.45; }
+  .met-annote { display: grid; gap: 6px; }
+  .met-morceau { margin: 0; padding: 9px 12px; border-radius: 10px; font-family: Fraunces, serif; font-size: 15px; line-height: 1.5; background: var(--panel); border-left: 4px solid var(--accent); }
+  .met-morceau.r0 { border-left-color: #C93F75; } .met-morceau.r1 { border-left-color: var(--accent); }
+  .met-morceau.r2 { border-left-color: var(--warn); } .met-morceau.r3 { border-left-color: var(--histoire); background: var(--histoireSoft); }
+  .met-morceau.r4 { border-left-color: var(--ok); } .met-morceau.r5 { border-left-color: var(--accent); }
+  .met-morceau.r6 { border-left-color: var(--histoire); background: var(--histoireSoft); } .met-morceau.r7 { border-left-color: #C93F75; }
+  .met-doc { padding: 14px 16px; border-radius: 12px; background: var(--panel); border: 1px solid var(--line); margin: 12px 0; }
+  .met-doc-titre { margin: 0 0 8px; font-weight: 700; font-size: 15px; }
+  .met-doc-texte p { font-family: Fraunces, serif; font-size: 16px; line-height: 1.55; margin: 0 0 8px; }
+  .met-doc-source { margin: 8px 0 0; font-size: 12.5px; color: var(--faint); }
+  .met-relire { margin: 6px 0 14px; }
+  .met-relire summary { cursor: pointer; font-size: 13.5px; font-weight: 600; color: var(--accent); padding: 6px 0; }
+  .met-lire { position: static; margin: 0 8px 0 0; vertical-align: middle; }
+  .met-modele { display: grid; gap: 10px; margin-top: 12px; }
+  .met-modele-partie { padding: 10px 14px; border-radius: 10px; background: var(--panel); border: 1px solid var(--line); }
+  .met-modele-partie p { margin: 4px 0 0; font-family: Fraunces, serif; font-size: 15px; line-height: 1.5; }
