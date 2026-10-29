@@ -1106,7 +1106,7 @@
   .ea-calendrier svg { width: 100%; height: 100%; display: block; }
   .lien-defi { display: block; margin: 10px 0 4px; padding: 10px 14px; border-radius: 12px; border: 1px dashed var(--accent); color: var(--ink); text-decoration: none; font-size: 14px; }
   .lien-defi strong { color: var(--accent); }
-  /* méthode du bac */
+  /* méthode : fiches et ateliers */
   .entree-methode { display: flex; align-items: center; gap: 12px; margin: 18px 0 6px; padding: 10px 16px 10px 8px; border-radius: 18px; text-decoration: none; color: #fff; background: linear-gradient(135deg, #1F4E5F, #3B6E44); box-shadow: 0 5px 0 #15343F; }
   .entree-methode:active { transform: translateY(3px); box-shadow: 0 2px 0 #15343F; }
   .em-fig { width: 72px; height: 60px; flex: none; }
@@ -1190,6 +1190,30 @@
   .met-modele { display: grid; gap: 10px; margin-top: 12px; }
   .met-modele-partie { padding: 10px 14px; border-radius: 10px; background: var(--panel); border: 1px solid var(--line); }
   .met-modele-partie p { margin: 4px 0 0; font-family: Fraunces, serif; font-size: 15px; line-height: 1.5; }
+  .met-chapitre { margin-top: 6px; }
+  /* duo */
+  .express.duo { margin-top: 10px; background: #6C4CF1; color: #fff; }
+  [data-theme="dark"] .express.duo { color: #fff; }
+  .duo-haut { gap: 10px; }
+  .duo-scores { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; min-width: 0; }
+  .duo-joueur { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 2px 8px; padding: 6px 10px; border-radius: 12px; background: #23275A; border: 2px solid #3E4384; color: #fff; }
+  .duo-joueur.actif { border-color: var(--c); background: #2B2F6E; }
+  .duo-nom { font-size: 13px; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .duo-nom::before { content: ""; display: inline-block; width: 9px; height: 9px; border-radius: 50%; background: var(--c); margin-right: 6px; }
+  .duo-joueur strong { font-size: 20px; font-weight: 800; }
+  .duo-points { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 3px; }
+  .duo-points i { width: 8px; height: 8px; border-radius: 50%; background: #3E4384; }
+  .duo-points i.bien { background: #22C55E; }
+  .duo-points i.mal { background: #EF4444; }
+  .duo-tour { width: calc(100% - 36px); max-width: 420px; margin: 10vh auto 0; padding: 28px 18px; border-radius: 22px; background: #23275A; border: 3px solid var(--c); color: #fff; text-align: center; }
+  .duo-tour h2 { margin: 6px 0; font-size: 34px; font-weight: 800; color: #fff; overflow-wrap: anywhere; }
+  .duo-passe { margin: 0; font-size: 15px; opacity: .85; }
+  .duo-numero { margin: 0; font-size: 14px; color: #C9C6EA; }
+  .duo-bandeau { display: inline-block; margin: 2px 0 6px; padding: 5px 12px; border-radius: 99px; background: var(--c); color: #fff; font-size: 14px; font-weight: 800; }
+  .duo-medaille { width: 84px; height: 84px; margin: 0 auto 6px; }
+  .duo-medaille .av-sym { width: 100%; height: 100%; }
+  .duo-final { font-size: 17px; }
+  .duo-final strong { margin: 0 6px; font-size: 28px; }
   /* carte d'aventurier */
   .cv-page { max-width: 470px; }
   .cv-carte {
@@ -1354,8 +1378,8 @@
 
 <script src="cours.js"></script>
 <script src="reperes.js"></script>
-<script src="cartes.js"></script>
 <script src="methode.js"></script>
+<script src="cartes.js"></script>
 <script src="vendor/qrcode-generator-1.4.4.js"></script>
 <script>
 (function () {
@@ -1393,6 +1417,7 @@
     cartes: '<rect x="3" y="7" width="13" height="14" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2h-3"/>',
     quiz: '<circle cx="12" cy="12" r="9"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3"/><path d="M12 17h.01"/>',
     frise: '<path d="M2 18h20"/><path d="M6 18V10M12 18V6M18 18v-5"/><circle cx="6" cy="8.5" r="1.6"/><circle cx="12" cy="4.5" r="1.6"/><circle cx="18" cy="11.5" r="1.6"/>',
+    duo: '<circle cx="8" cy="8" r="3.2"/><circle cx="16.5" cy="9" r="2.7"/><path d="M2.5 20a5.5 5.5 0 0 1 11 0"/><path d="M13.5 15.2a5 5 0 0 1 8 4.8"/>',
     associer: '<path d="M10 13a5 5 0 0 0 7.5.5l3-3a5 5 0 0 0-7-7l-1.7 1.7"/><path d="M14 11a5 5 0 0 0-7.5-.5l-3 3a5 5 0 0 0 7 7l1.7-1.7"/>',
     trous: '<path d="M4 7h16M4 12h5M15 12h5M4 17h9"/><path d="M10 12h4" stroke-dasharray="1.5 2"/>',
     quisuisje: '<circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0 1 14 0"/><path d="M17.5 5.5a2.5 2.5 0 0 1 4.5 1.5c0 1.5-2 2-2 3.2"/><path d="M20 13.5h.01"/>',
@@ -1776,9 +1801,10 @@
     if (p[0] === "controle") return { vue: "controle", niveau: p[1], sous: p[2] };
     if (p[0] === "defi") return { vue: "defi", niveau: p[1], sous: p[2] };
     if (p[0] === "carte") return { vue: "carte", niveau: p[1] };
-    if (p[0] === "methode") return { vue: "methode", sous: p[1], x: p[2] };
     if (p[0] === "verifier") return { vue: "verifier", code: p[1] };
     if (p[0] === "express") return { vue: "express", niveau: p[1] };
+    if (p[0] === "methode") return { vue: "methode", niveau: p[1], sous: p[2], x: p[3] };
+    if (p[0] === "duo") return { vue: "duo", niveau: p[1] };
     if (p[0] === "niveau") return { vue: "accueil", niveau: p[1] };
     return { vue: "accueil" };
   }
@@ -1814,7 +1840,8 @@
       return;
     }
     if (r.vue === "verifier") { vueVerifierCarte(r.code); return; }
-    if (r.vue === "methode") { vueMethode(r.sous, r.x); return; }
+    if (r.vue === "methode") { if (rangNiveau(r.niveau) >= 0) vueMethode(r.niveau, r.sous, r.x); else vueAccueil(); return; }
+    if (r.vue === "duo") { if (rangNiveau(r.niveau) >= 0) vueDuo(r.niveau); else vueAccueil(); return; }
     if (r.vue === "aventure") {
       // un chapitre, ou un grand parcours : annee-<classe>, reperes-<classe> (si le mode est ouvert pour la classe)
       var parcours = cheminAventure(r.ch);
@@ -1913,8 +1940,16 @@
           : "Une série de cartes piochées dans tous tes chapitres" })
       ]));
       app.appendChild(ex);
+      var duoE = el("a", { class: "express duo", href: "#/duo/" + niveau });
+      duoE.innerHTML = icone("duo");
+      duoE.appendChild(el("span", null, [
+        el("strong", { text: "Réviser à deux" }),
+        el("span", { class: "sous", text: "Le duo : chacun son tour sur le même téléphone" })
+      ]));
+      app.appendChild(duoE);
     }
-    app.appendChild(entreeMethode());
+    var methodeE = entreeMethode(niveau);
+    if (methodeE) app.appendChild(methodeE);
     var parcours = aventureDispo(niveau) ? entreesParcours(niveau) : null;
     if (parcours) app.appendChild(parcours);
 
@@ -2011,6 +2046,8 @@
       grille.appendChild(a);
     });
     app.appendChild(grille);
+    var methodeC = blocMethodeChapitre(ch);
+    if (methodeC) app.appendChild(methodeC);
   }
 
   // ---------- Les outils ----------
@@ -7315,44 +7352,68 @@
     ]);
   }
 
-  // ---------- La méthode du bac : fiches méthode et ateliers (composition, analyse de document, figurés du croquis) ----------
-  // Les contenus sont dans methode.js (METHODE) ; les meilleurs scores restent sur le téléphone.
-  var MET = typeof METHODE !== "undefined" ? METHODE : { fiches: [], compos: [], docs: [], figures: null };
+  // ---------- La méthode : fiches méthode et ateliers (composition, analyse de document, figurés du croquis) ----------
+  // Les contenus sont dans methode.js (METHODE). Un atelier est rattaché à un chapitre : il n'apparaît que pour sa classe,
+  // et seulement si le chapitre est ouvert aux élèves. Les meilleurs scores restent sur le téléphone.
+  var MET = typeof METHODE !== "undefined" ? METHODE : { fiches: [], compos: [], docs: [], figures: [] };
   var CLE_METHODE = "terminale-methode-v1";
-  var scoresMethode = lire(CLE_METHODE, {});
+  var scoresMethode = lire(CLE_METHODE, {}) || {};
   function noterMethode(cle, pc) {
     if (!(cle in scoresMethode) || pc > scoresMethode[cle]) { scoresMethode[cle] = pc; ecrire(CLE_METHODE, scoresMethode); }
   }
-  function trouverMet(liste, id) { return (liste || []).filter(function (x) { return x.id === id; })[0] || null; }
-  function nbAteliers() { return MET.compos.length + MET.docs.length + (MET.figures ? 1 : 0); }
+  function listeMet(champ) { var v = MET[champ]; return !v ? [] : Array.isArray(v) ? v : [v]; }
+  // un atelier est visible pour la classe n si son chapitre est de cette classe et ouvert (ou si l'on est professeur)
+  function atelierVisible(x, n) {
+    if (x.chapitre) {
+      var ch = chapitre(x.chapitre);
+      return !!ch && ch.n === n && (estVisible(ch) || estProf());
+    }
+    return !x.n || x.n === n;
+  }
+  function ateliersNiveau(n) {
+    return {
+      compos: listeMet("compos").filter(function (x) { return atelierVisible(x, n); }),
+      docs: listeMet("docs").filter(function (x) { return atelierVisible(x, n); }),
+      figures: listeMet("figures").filter(function (x) { return atelierVisible(x, n); })
+    };
+  }
+  function nbAteliers(a) { return a.compos.length + a.docs.length + a.figures.length; }
+  function cleFigures(f) { return "figures" + (f.n ? ":" + f.n : ""); }
+  function trouverMet(liste, id) { return liste.filter(function (x) { return x.id === id; })[0] || null; }
+  function titreMethode() { return MET.titre || "Les ateliers de méthode"; }
 
   var SVG_METHODE = '<svg viewBox="0 0 64 56"><rect x="12" y="4" width="36" height="46" rx="5" fill="#fff"/><path d="M19 15h22M19 22h22M19 29h16M19 36h12" stroke="#1F4E5F" stroke-width="3" stroke-linecap="round"/><path d="M50 18l6 6-17 17-8 2 2-8z" fill="#F2C94C" stroke="#3A2A00" stroke-width="2" stroke-linejoin="round"/></svg>';
 
-  function entreeMethode() {
-    var nb = nbAteliers(), faits = Object.keys(scoresMethode).length;
-    var a = el("a", { class: "entree-methode", href: "#/methode" });
+  // l'entrée sur l'accueil d'une classe (rien s'il n'y a aucun atelier ouvert pour elle)
+  function entreeMethode(n) {
+    var a = ateliersNiveau(n), nb = nbAteliers(a);
+    if (!nb) return null;
+    var faits = a.compos.filter(function (c) { return ("compo:" + c.id) in scoresMethode; }).length
+      + a.docs.filter(function (d) { return ("doc:" + d.id) in scoresMethode; }).length
+      + a.figures.filter(function (f) { return cleFigures(f) in scoresMethode; }).length;
+    var x = el("a", { class: "entree-methode", href: "#/methode/" + n });
     var fig = el("span", { class: "em-fig", "aria-hidden": "true" });
     fig.innerHTML = SVG_METHODE;
-    a.appendChild(fig);
-    a.appendChild(el("span", { class: "em-txt" }, [
-      el("strong", { text: "La méthode du bac" }),
+    x.appendChild(fig);
+    x.appendChild(el("span", { class: "em-txt" }, [
+      el("strong", { text: titreMethode() }),
       el("span", { text: "Composition, analyse de document, croquis : " + pluriel(MET.fiches.length, "fiche") + " et " + pluriel(nb, "atelier") + (faits ? " · " + faits + " / " + nb + " faits" : "") })
     ]));
-    return a;
+    return x;
   }
 
-  function vueMethode(sous, x) {
-    var f;
-    if (sous === "fiche" && (f = trouverMet(MET.fiches, x))) return vueFicheMethode(f);
-    if (sous === "compo" && (f = trouverMet(MET.compos, x))) return vueAtelierCompo(f);
-    if (sous === "doc" && (f = trouverMet(MET.docs, x))) return vueAtelierDoc(f);
-    if (sous === "figures" && MET.figures) return vueAtelierFigures(MET.figures);
-    vueAccueilMethode();
+  function vueMethode(n, sous, id) {
+    var a = ateliersNiveau(n), f;
+    if (sous === "fiche" && (f = trouverMet(MET.fiches, id))) return vueFicheMethode(n, f);
+    if (sous === "compo" && (f = trouverMet(a.compos, id))) return vueAtelierCompo(n, f);
+    if (sous === "doc" && (f = trouverMet(a.docs, id))) return vueAtelierDoc(n, f);
+    if (sous === "figures" && a.figures.length) return vueAtelierFigures(n, a.figures[0]);
+    vueAccueilMethode(n);
   }
 
   function etiquetteChapitre(id) {
     var ch = chapitre(id);
-    return ch ? (ch.d === "geo" ? "Géographie" : "Histoire") + " · " + ch.titre : "";
+    return ch ? DISC[ch.d] + " · " + ch.titre : "";
   }
   function badgeScore(cle) {
     return cle in scoresMethode ? el("span", { class: "met-badge" + (scoresMethode[cle] >= 80 ? " bien" : ""), text: scoresMethode[cle] + " %" }) : el("span", { class: "met-badge vide", text: "à faire" });
@@ -7363,42 +7424,51 @@
       badgeScore(cle)
     ]);
   }
+  function lignesAteliers(n, a, chapitreSeul) {
+    var t = [];
+    a.compos.forEach(function (c) { if (!chapitreSeul || c.chapitre === chapitreSeul) t.push(ligneAtelier("#/methode/" + n + "/compo/" + c.id, "compo:" + c.id, (chapitreSeul ? "Composition : " : "") + c.sujet, chapitreSeul ? null : etiquetteChapitre(c.chapitre), (chapitre(c.chapitre) || {}).d)); });
+    a.docs.forEach(function (x) { if (!chapitreSeul || x.chapitre === chapitreSeul) t.push(ligneAtelier("#/methode/" + n + "/doc/" + x.id, "doc:" + x.id, (chapitreSeul ? "Analyse de document : " : "") + x.doc.titre, chapitreSeul ? null : etiquetteChapitre(x.chapitre), (chapitre(x.chapitre) || {}).d)); });
+    a.figures.forEach(function (f) { if (!chapitreSeul || f.chapitre === chapitreSeul) t.push(ligneAtelier("#/methode/" + n + "/figures", cleFigures(f), f.titre, f.sous, "geo")); });
+    return t;
+  }
+  // sur la page d'un chapitre : les ateliers qui s'y rattachent
+  function blocMethodeChapitre(ch) {
+    var lignes = lignesAteliers(ch.n, ateliersNiveau(ch.n), ch.id);
+    if (!lignes.length) return null;
+    return el("div", { class: "met-chapitre" }, [el("div", { class: "etiq", text: "S'entraîner à la méthode" })].concat(lignes));
+  }
 
-  function vueAccueilMethode() {
-    document.title = "La méthode du bac — Réviser la Terminale";
-    app.appendChild(lienRetour("#/", "Accueil"));
+  function vueAccueilMethode(n) {
+    document.title = titreMethode() + " — " + nomNiveau(n);
+    var a = ateliersNiveau(n);
+    app.appendChild(lienRetour("#/niveau/" + n, "Accueil"));
     app.appendChild(el("div", { class: "chap-entete" }, [
-      el("h1", { text: "La méthode du bac" }),
+      el("h1", { text: titreMethode() }),
       el("p", { class: "petit", text: "Les fiches pour savoir quoi faire, les ateliers pour s'entraîner pas à pas." })
     ]));
     app.appendChild(el("div", { class: "etiq", text: "Les fiches méthode" }));
     var g = el("div", { class: "outils" });
     MET.fiches.forEach(function (f) {
-      var a = el("a", { class: "outil" + (f.d === "geo" ? " geo" : ""), href: "#/methode/fiche/" + f.id });
-      a.appendChild(el("span", { class: "pastille", icone: f.icone || "essentiel" }));
-      a.appendChild(el("strong", { text: f.titre }));
-      a.appendChild(el("span", { class: "info", text: f.resume }));
-      g.appendChild(a);
+      var x = el("a", { class: "outil" + (f.d === "geo" ? " geo" : ""), href: "#/methode/" + n + "/fiche/" + f.id });
+      x.appendChild(el("span", { class: "pastille", icone: f.icone || "essentiel" }));
+      x.appendChild(el("strong", { text: f.titre }));
+      x.appendChild(el("span", { class: "info", text: f.resume }));
+      g.appendChild(x);
     });
     app.appendChild(g);
-    if (MET.compos.length) {
+    if (a.compos.length) {
       app.appendChild(el("div", { class: "etiq", text: "Ateliers · la composition" }));
-      MET.compos.forEach(function (c) {
-        var ch = chapitre(c.chapitre);
-        app.appendChild(ligneAtelier("#/methode/compo/" + c.id, "compo:" + c.id, c.sujet, etiquetteChapitre(c.chapitre), ch ? ch.d : c.d));
-      });
+      a.compos.forEach(function (c) { app.appendChild(ligneAtelier("#/methode/" + n + "/compo/" + c.id, "compo:" + c.id, c.sujet, etiquetteChapitre(c.chapitre), (chapitre(c.chapitre) || {}).d)); });
     }
-    if (MET.docs.length) {
+    if (a.docs.length) {
       app.appendChild(el("div", { class: "etiq", text: "Ateliers · l'analyse de document" }));
-      MET.docs.forEach(function (x) {
-        var ch = chapitre(x.chapitre);
-        app.appendChild(ligneAtelier("#/methode/doc/" + x.id, "doc:" + x.id, x.doc.titre, etiquetteChapitre(x.chapitre), ch ? ch.d : x.d));
-      });
+      a.docs.forEach(function (x) { app.appendChild(ligneAtelier("#/methode/" + n + "/doc/" + x.id, "doc:" + x.id, x.doc.titre, etiquetteChapitre(x.chapitre), (chapitre(x.chapitre) || {}).d)); });
     }
-    if (MET.figures) {
+    if (a.figures.length) {
       app.appendChild(el("div", { class: "etiq", text: "Atelier · le croquis" }));
-      app.appendChild(ligneAtelier("#/methode/figures", "figures", MET.figures.titre, MET.figures.sous, "geo"));
+      a.figures.forEach(function (f) { app.appendChild(ligneAtelier("#/methode/" + n + "/figures", cleFigures(f), f.titre, f.sous, "geo")); });
     }
+    if (!nbAteliers(a)) app.appendChild(el("p", { class: "vide", text: "Les ateliers arrivent avec les chapitres de l'année." }));
   }
 
   // ----- les fiches -----
@@ -7411,7 +7481,7 @@
     fleche: '<path d="M3 20c10-12 22-12 30-6" stroke="#C0392B" stroke-width="4" fill="none"/><path d="M38 17l-9 4 3-9z" fill="#C0392B"/>',
     pointilles: '<path d="M2 14h36" stroke="#55605F" stroke-width="3" stroke-dasharray="5 4"/>',
     aplat: '<rect x="3" y="4" width="34" height="20" rx="3" fill="#E9A23B"/>',
-    hachures: '<defs><pattern id="hach" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0v6" stroke="#3B6E44" stroke-width="2.4"/></pattern></defs><rect x="3" y="4" width="34" height="20" rx="3" fill="url(#hach)" stroke="#3B6E44"/>'
+    hachures: '<defs><pattern id="met-hach" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0v6" stroke="#3B6E44" stroke-width="2.4"/></pattern></defs><rect x="3" y="4" width="34" height="20" rx="3" fill="url(#met-hach)" stroke="#3B6E44"/>'
   };
   function figureSvg(nom) {
     var s = el("span", { class: "met-fig", "aria-hidden": "true" });
@@ -7445,9 +7515,9 @@
     return g;
   }
 
-  function vueFicheMethode(f) {
-    document.title = f.titre + " — La méthode du bac";
-    app.appendChild(lienRetour("#/methode", "La méthode du bac"));
+  function vueFicheMethode(n, f) {
+    document.title = f.titre + " — " + titreMethode();
+    app.appendChild(lienRetour("#/methode/" + n, titreMethode()));
     app.appendChild(el("div", { class: "chap-entete" }, [el("h1", { text: f.titre })]));
     if (f.cle) app.appendChild(el("p", { class: "cle", text: f.cle }));
     if (f.structure) {
@@ -7479,10 +7549,12 @@
         f.eviter ? el("div", { class: "met-col non" }, [el("strong", { text: "À éviter" }), el("ul", null, f.eviter.map(function (p) { return el("li", { text: p }); }))]) : null
       ]));
     }
-    var liens = [];
-    if (f.atelier === "compo") MET.compos.forEach(function (c) { liens.push(ligneAtelier("#/methode/compo/" + c.id, "compo:" + c.id, c.sujet, etiquetteChapitre(c.chapitre), (chapitre(c.chapitre) || {}).d)); });
-    if (f.atelier === "doc") MET.docs.forEach(function (x) { liens.push(ligneAtelier("#/methode/doc/" + x.id, "doc:" + x.id, x.doc.titre, etiquetteChapitre(x.chapitre), (chapitre(x.chapitre) || {}).d)); });
-    if (f.atelier === "figures" && MET.figures) liens.push(ligneAtelier("#/methode/figures", "figures", MET.figures.titre, MET.figures.sous, "geo"));
+    var a = ateliersNiveau(n);
+    var vide = { compos: [], docs: [], figures: [] };
+    if (f.atelier === "compo") vide.compos = a.compos;
+    if (f.atelier === "doc") vide.docs = a.docs;
+    if (f.atelier === "figures") vide.figures = a.figures;
+    var liens = lignesAteliers(n, vide);
     if (liens.length) {
       app.appendChild(el("div", { class: "etiq", text: "S'entraîner" }));
       liens.forEach(function (l) { app.appendChild(l); });
@@ -7490,9 +7562,8 @@
   }
 
   // ----- le moteur des ateliers : des étapes, chacune une suite d'exercices -----
-  function atelier(cfg) {
-    // cfg : { titre, retour, entete (nœud), etapes: [{ nom, faire(zone, fini(justes, total)) }], cle, fin(zone) }
-    app.appendChild(lienRetour("#/methode", "La méthode du bac"));
+  function atelier(n, cfg) {
+    app.appendChild(lienRetour("#/methode/" + n, titreMethode()));
     app.appendChild(el("div", { class: "chap-entete" }, [el("p", { class: "q-consigne", text: cfg.genre }), el("h1", { text: cfg.titre })]));
     var puces = el("ol", { class: "met-progres", "aria-label": "Étapes" });
     cfg.etapes.forEach(function (e) { puces.appendChild(el("li", { text: e.nom })); });
@@ -7521,7 +7592,7 @@
         el("p", { text: pc >= 80 ? "Très bien : la méthode est en place." : pc >= 50 ? "C'est en bonne voie : refais l'atelier dans quelques jours." : "Relis la fiche méthode, puis recommence l'atelier." }),
         el("div", { class: "btns" }, [
           el("button", { class: "btn plein", type: "button", text: "Recommencer", onclick: function () { rendre(); window.scrollTo(0, 0); } }),
-          cfg.fiche ? el("a", { class: "btn", href: "#/methode/fiche/" + cfg.fiche, text: "La fiche méthode" }) : null,
+          cfg.fiche ? el("a", { class: "btn", href: "#/methode/" + n + "/fiche/" + cfg.fiche, text: "La fiche méthode" }) : null,
           cfg.chapitre && chapitre(cfg.chapitre) ? el("a", { class: "btn", href: lienChapitre(chapitre(cfg.chapitre)), text: "Réviser le chapitre" }) : null
         ])
       ]));
@@ -7544,8 +7615,8 @@
       cadre.appendChild(el("p", { class: "q-enonce", text: q.q }));
       var opts = el("div", { class: "options" });
       var choix = melanger([q.r].concat(q.faux));
-      var boutons = choix.map(function (o, n) {
-        var b = el("button", { class: "option", type: "button" }, [el("span", { class: "lettre", text: "ABCDE"[n] }), el("span", { text: o })]);
+      var boutons = choix.map(function (o, k) {
+        var b = el("button", { class: "option", type: "button" }, [el("span", { class: "lettre", text: "ABCDE"[k] }), el("span", { text: o })]);
         b.addEventListener("click", function () {
           boutons.forEach(function (x, m) { x.disabled = true; if (choix[m] === q.r) x.classList.add("juste"); });
           if (o === q.r) justes++; else b.classList.add("faux");
@@ -7589,6 +7660,34 @@
     poser();
   }
 
+  // ranger des éléments dans des parties : items [{ t, i (rang de la bonne partie) }], parties [titres]
+  function suiteRanger(zone, items, parties, nomItem, fini, apres) {
+    var n = 0, justes = 0;
+    var cadre = el("div");
+    zone.appendChild(cadre);
+    function poser() {
+      cadre.innerHTML = "";
+      if (n >= items.length) { if (apres) apres(cadre, justes, items.length); else fini(justes, items.length); return; }
+      var x = items[n];
+      cadre.appendChild(el("p", { class: "petit", text: nomItem + " " + (n + 1) + " / " + items.length }));
+      cadre.appendChild(el("p", { class: "met-argument", text: x.t }));
+      var opts = el("div", { class: "options" });
+      var boutons = parties.map(function (p, i) {
+        var b = el("button", { class: "option", type: "button" }, [el("span", { class: "lettre", text: ["I", "II", "III", "IV"][i] }), el("span", { text: p })]);
+        b.addEventListener("click", function () {
+          boutons.forEach(function (y) { y.disabled = true; });
+          boutons[x.i].classList.add("juste");
+          if (i === x.i) justes++; else b.classList.add("faux");
+          cadre.appendChild(boutonSuite(n + 1 < items.length ? "Suivant" : "Étape suivante", function () { n++; poser(); }));
+        });
+        opts.appendChild(b);
+        return b;
+      });
+      cadre.appendChild(opts);
+    }
+    poser();
+  }
+
   // ----- atelier composition -----
   var ROLES_TEXTE = {
     accroche: "Accroche", definitions: "Définir les termes", contexte: "Contexte et bornes", problematique: "Problématique", annonce: "Annonce du plan",
@@ -7602,13 +7701,18 @@
     });
     return b;
   }
+  function planDetaille(parties, champ) {
+    return el("ol", { class: "met-plan-detail" }, parties.map(function (p) {
+      return el("li", null, [el("strong", { text: p.titre }), el("ul", null, p[champ].map(function (a) { return el("li", { text: a }); }))]);
+    }));
+  }
 
-  function vueAtelierCompo(c) {
-    document.title = "Atelier composition — Réviser la Terminale";
+  function vueAtelierCompo(n, c) {
+    document.title = "Atelier composition — " + nomNiveau(n);
     var parties = c.plan.parties;
-    atelier({
+    atelier(n, {
       genre: "Atelier · la composition", titre: c.sujet, cle: "compo:" + c.id, fiche: "composition", chapitre: c.chapitre,
-      conseil: "rédige maintenant l'introduction et la première partie au propre, en 30 minutes, sans regarder le modèle.",
+      conseil: c.conseil || "rédige maintenant l'introduction et la première partie au propre, en 30 minutes, sans regarder le modèle.",
       etapes: [
         { nom: "Analyser le sujet", aide: "Les mots du sujet, les bornes, l'espace : c'est ce qui délimite ton devoir.", faire: function (zone, fini) {
           zone.appendChild(el("p", { class: "met-sujet", text: c.sujet }));
@@ -7643,40 +7747,14 @@
         } },
         { nom: "Ranger les arguments", aide: "Chaque argument va dans une partie : à toi de le placer.", faire: function (zone, fini) {
           var args = [];
-          parties.forEach(function (p, i) { p.args.forEach(function (a) { args.push({ a: a, i: i }); }); });
-          args = melanger(args);
-          var n = 0, justes = 0;
-          var cadre = el("div");
-          zone.appendChild(cadre);
-          function poser() {
-            cadre.innerHTML = "";
-            if (n >= args.length) return fini(justes, args.length);
-            var x = args[n];
-            cadre.appendChild(el("p", { class: "petit", text: "Argument " + (n + 1) + " / " + args.length }));
-            cadre.appendChild(el("p", { class: "met-argument", text: x.a }));
-            var opts = el("div", { class: "options" });
-            var boutons = parties.map(function (p, i) {
-              var b = el("button", { class: "option", type: "button" }, [el("span", { class: "lettre", text: ["I", "II", "III", "IV"][i] }), el("span", { text: p.titre })]);
-              b.addEventListener("click", function () {
-                boutons.forEach(function (y) { y.disabled = true; });
-                boutons[x.i].classList.add("juste");
-                if (i === x.i) justes++; else b.classList.add("faux");
-                cadre.appendChild(boutonSuite(n + 1 < args.length ? "Argument suivant" : "Étape suivante", function () { n++; poser(); }));
-              });
-              opts.appendChild(b);
-              return b;
-            });
-            cadre.appendChild(opts);
-          }
-          poser();
+          parties.forEach(function (p, i) { p.args.forEach(function (a) { args.push({ t: a, i: i }); }); });
+          suiteRanger(zone, melanger(args), parties.map(function (p) { return p.titre; }), "Argument", fini);
         } },
         { nom: "Introduction et conclusion", aide: "Le modèle, passage par passage : repère le rôle de chacun.", faire: function (zone, fini) {
           zone.appendChild(el("div", { class: "etiq", text: "Introduction" }));
           zone.appendChild(texteAnnote(c.intro));
           zone.appendChild(el("div", { class: "etiq", text: "Le plan détaillé" }));
-          zone.appendChild(el("ol", { class: "met-plan-detail" }, parties.map(function (p) {
-            return el("li", null, [el("strong", { text: p.titre }), el("ul", null, p.args.map(function (a) { return el("li", { text: a }); }))]);
-          })));
+          zone.appendChild(planDetaille(parties, "args"));
           zone.appendChild(el("div", { class: "etiq", text: "Conclusion" }));
           zone.appendChild(texteAnnote(c.conclusion));
           zone.appendChild(boutonSuite("Voir mon score", function () { fini(0, 0); }));
@@ -7689,15 +7767,15 @@
   function blocDocument(d, replie) {
     var corps = el("div", { class: "met-doc" }, [
       el("p", { class: "met-doc-titre", text: d.titre }),
-      el("div", { class: "met-doc-texte" }, d.extrait.map(function (p) { return el("p", { text: p }); })),
+      el("div", { class: "met-doc-texte" }, (Array.isArray(d.extrait) ? d.extrait : [d.extrait]).map(function (p) { return el("p", { text: p }); })),
       el("p", { class: "met-doc-source", text: d.source })
     ]);
     if (!replie) return corps;
     return el("details", { class: "met-relire" }, [el("summary", { text: "Relire le document" }), corps]);
   }
-  function vueAtelierDoc(x) {
-    document.title = "Atelier analyse de document — Réviser la Terminale";
-    atelier({
+  function vueAtelierDoc(n, x) {
+    document.title = "Atelier analyse de document — " + nomNiveau(n);
+    atelier(n, {
       genre: "Atelier · l'analyse de document", titre: x.doc.titre, cle: "doc:" + x.id, fiche: "analyse-document", chapitre: x.chapitre,
       conseil: "rédige toi-même la réponse à la consigne, puis compare-la au modèle : as-tu cité le texte ? as-tu ajouté tes connaissances ?",
       etapes: [
@@ -7738,23 +7816,23 @@
     });
   }
 
-  // ----- atelier figurés : quel figuré pour quel phénomène ? -----
-  function vueAtelierFigures(f) {
-    document.title = "Atelier croquis — Réviser la Terminale";
-    atelier({
-      genre: "Atelier · le croquis", titre: f.titre, cle: "figures", fiche: "croquis",
+  // ----- atelier figurés : quel figuré pour quel phénomène ? puis organiser une légende -----
+  function vueAtelierFigures(n, f) {
+    document.title = "Atelier croquis — " + nomNiveau(n);
+    atelier(n, {
+      genre: "Atelier · le croquis", titre: f.titre, cle: cleFigures(f), fiche: "croquis", chapitre: f.chapitre,
       conseil: "reprends un croquis de ton cahier et vérifie que chaque figuré correspond au phénomène qu'il représente.",
       etapes: [
         { nom: "Choisir le figuré", aide: "Un lieu, un flux ou un espace ? Choisis la famille de figurés.", faire: function (zone, fini) {
           var items = melanger(f.items).slice(0, f.nb || 10);
-          var n = 0, justes = 0;
+          var k = 0, justes = 0;
           var cadre = el("div");
           zone.appendChild(cadre);
           function poser() {
             cadre.innerHTML = "";
-            if (n >= items.length) return fini(justes, items.length);
-            var it = items[n];
-            cadre.appendChild(el("p", { class: "petit", text: "Phénomène " + (n + 1) + " / " + items.length }));
+            if (k >= items.length) return fini(justes, items.length);
+            var it = items[k];
+            cadre.appendChild(el("p", { class: "petit", text: "Phénomène " + (k + 1) + " / " + items.length }));
             cadre.appendChild(el("p", { class: "q-enonce", text: it.txt }));
             var opts = el("div", { class: "met-figchoix" });
             var boutons = TYPES_FIGURES.map(function (t) {
@@ -7769,7 +7847,7 @@
                   it.fig ? figureSvg(it.fig) : null,
                   el("span", null, [el("strong", { text: "Figuré " + TYPES_FIGURES[bon].nom.toLowerCase() + ". " }), it.expl || ""])
                 ]));
-                cadre.appendChild(boutonSuite(n + 1 < items.length ? "Phénomène suivant" : "Étape suivante", function () { n++; poser(); }));
+                cadre.appendChild(boutonSuite(k + 1 < items.length ? "Phénomène suivant" : "Étape suivante", function () { k++; poser(); }));
               });
               opts.appendChild(b);
               return b;
@@ -7783,41 +7861,247 @@
           zone.appendChild(el("p", { class: "met-sujet", text: lg.sujet }));
           var items = [];
           lg.parties.forEach(function (p, i) { p.items.forEach(function (t) { items.push({ t: t, i: i }); }); });
-          items = melanger(items);
-          var n = 0, justes = 0;
-          var cadre = el("div");
-          zone.appendChild(cadre);
-          function poser() {
-            cadre.innerHTML = "";
-            if (n >= items.length) {
-              cadre.appendChild(el("div", { class: "etiq", text: "La légende complète" }));
-              cadre.appendChild(el("ol", { class: "met-plan-detail" }, lg.parties.map(function (p) {
-                return el("li", null, [el("strong", { text: p.titre }), el("ul", null, p.items.map(function (t) { return el("li", { text: t }); }))]);
-              })));
-              cadre.appendChild(boutonSuite("Voir mon score", function () { fini(justes, items.length); }));
-              return;
-            }
-            var x = items[n];
-            cadre.appendChild(el("p", { class: "petit", text: "Élément " + (n + 1) + " / " + items.length }));
-            cadre.appendChild(el("p", { class: "met-argument", text: x.t }));
-            var opts = el("div", { class: "options" });
-            var boutons = lg.parties.map(function (p, i) {
-              var b = el("button", { class: "option", type: "button" }, [el("span", { class: "lettre", text: ["I", "II", "III", "IV"][i] }), el("span", { text: p.titre })]);
-              b.addEventListener("click", function () {
-                boutons.forEach(function (y) { y.disabled = true; });
-                boutons[x.i].classList.add("juste");
-                if (i === x.i) justes++; else b.classList.add("faux");
-                cadre.appendChild(boutonSuite("Suivant", function () { n++; poser(); }));
-              });
-              opts.appendChild(b);
-              return b;
-            });
-            cadre.appendChild(opts);
-          }
-          poser();
+          suiteRanger(zone, melanger(items), lg.parties.map(function (p) { return p.titre; }), "Élément", fini, function (cadre, justes, total) {
+            cadre.appendChild(el("div", { class: "etiq", text: "La légende complète" }));
+            cadre.appendChild(planDetaille(lg.parties, "items"));
+            cadre.appendChild(boutonSuite("Voir mon score", function () { fini(justes, total); }));
+          });
         } }
       ]
     });
+  }
+
+  // ---------- Le duo : réviser à deux sur le même téléphone, chacun son tour ----------
+  // Les questions sont celles du mode aventure (chapitres ouverts de la classe) ; rien n'est enregistré dans la progression.
+  var CLE_DUO = "terminale-duo-v1";
+  var COULEURS_DUO = ["#3B82F6", "#EF4444"];
+  var duo = null; // la partie en cours : { niveau, ids, nb, joueurs, questions, pos, tour, enCours }
+  function chapitresDuo(n) {
+    return (estProf() ? tousChapitresNiveau(n) : chapitresDansLOrdre(n)).filter(function (c) { return poolChapitre(c).length >= 4; });
+  }
+  function questionsDuo(n, ids, nb) {
+    var diff = DIFFICULTES[n] || DIFFICULTES["2nde"];
+    var pool = [];
+    ids.map(chapitre).filter(Boolean).forEach(function (c) { pool = pool.concat(poolChapitre(c)); });
+    pool = pool.filter(function (q) { return q.type !== "paires"; });
+    var qs = [];
+    // assez de questions pour la partie, même si un tirage en donne moins que demandé
+    for (var essai = 0; essai < 4 && qs.length < nb; essai++) qs = qs.concat(composer(pool, nb - qs.length, diff));
+    return qs.slice(0, nb);
+  }
+  function vueDuo(n) {
+    document.title = "Duo — " + nomNiveau(n);
+    if (duo && duo.niveau === n && duo.enCours) { vueDuoJeu(); return; }
+    vueDuoReglages(n);
+  }
+  function nouvellePartieDuo(n, ids, noms, nb, premier) {
+    var qs = questionsDuo(n, ids, nb * 2);
+    if (qs.length < nb * 2) return null;
+    return { niveau: n, ids: ids, nb: nb, questions: qs, pos: 0, tour: premier || 0, premier: premier || 0, enCours: true,
+      joueurs: noms.map(function (nom, j) { return { nom: nom, c: COULEURS_DUO[j], score: 0, resultats: [] }; }) };
+  }
+  function vueDuoReglages(n) {
+    duo = null;
+    var r = lire(CLE_DUO, {}) || {};
+    var noms = Array.isArray(r.noms) && r.noms.length === 2 ? r.noms.slice() : ["Joueur 1", "Joueur 2"];
+    var nb = [5, 8, 10].indexOf(r.nb) >= 0 ? r.nb : 5;
+    var chaps = chapitresDuo(n);
+    var choisis = (r.niveau === n && Array.isArray(r.chapitres) ? r.chapitres : chaps.map(function (c) { return c.id; }))
+      .filter(function (id) { return chaps.some(function (c) { return c.id === id; }); });
+    if (!choisis.length) choisis = chaps.map(function (c) { return c.id; });
+    var ecran = ecranAventure("av-nuit duo");
+    var lien = el("a", { class: "av-btn-rond", href: "#/niveau/" + n, "aria-label": "Retour" });
+    lien.innerHTML = icone("retour");
+    ecran.appendChild(el("div", { class: "av-haut" }, [lien, el("strong", { class: "av-haut-titre", text: "Duo" }), boutonSon()]));
+    var corps = el("div", { class: "av-page dc-reglages" });
+    ecran.appendChild(corps);
+    corps.appendChild(guideBulle({ d: "histoire" }, [el("p", { text: "Révisez à deux sur le même téléphone : chacun son tour, le téléphone passe de main en main. Celui ou celle qui a le plus de bonnes réponses gagne !" })]));
+    var zone = el("div");
+    corps.appendChild(zone);
+    function dessiner() {
+      zone.innerHTML = "";
+      var lc = el("div", { class: "av-choix-chapitres", role: "group", "aria-label": "Chapitres" });
+      chaps.forEach(function (c) {
+        var b = el("button", { class: "av-chap-choix", type: "button", "aria-pressed": String(choisis.indexOf(c.id) >= 0) }, [el("small", { text: c.num + " · " + DISC[c.d] }), el("span", { text: c.titre })]);
+        b.addEventListener("click", function () { var i = choisis.indexOf(c.id); if (i >= 0) choisis.splice(i, 1); else choisis.push(c.id); dessiner(); });
+        lc.appendChild(b);
+      });
+      var champs = el("div", { class: "dc-noms" });
+      [0, 1].forEach(function (j) {
+        var champ = el("input", { class: "dc-nom-champ", type: "text", maxlength: "16", value: noms[j], "aria-label": "Prénom du joueur " + (j + 1) });
+        champ.style.setProperty("--c", COULEURS_DUO[j]);
+        champ.addEventListener("focus", function () { if (/^Joueur [12]$/.test(champ.value)) champ.select(); });
+        champ.addEventListener("input", function () { noms[j] = champ.value.trim() || "Joueur " + (j + 1); });
+        champs.appendChild(champ);
+      });
+      var lancer = el("button", { class: "jeu-valider", type: "button", text: "Commencer le duo", disabled: !choisis.length });
+      lancer.addEventListener("click", function () {
+        var ids = chaps.map(function (c) { return c.id; }).filter(function (id) { return choisis.indexOf(id) >= 0; });
+        ecrire(CLE_DUO, { niveau: n, chapitres: ids, noms: noms, nb: nb });
+        var p = nouvellePartieDuo(n, ids, noms, nb, 0);
+        if (!p) { notifier("Ces chapitres n'ont pas encore assez de questions : ajoutes-en un autre.", "parchemin"); return; }
+        duo = p;
+        son("fin");
+        vueDuoJeu();
+      });
+      ajouter(zone, [
+        el("h3", { class: "av-sous-titre", text: "Les joueurs" }),
+        champs,
+        el("h3", { class: "av-sous-titre", text: "Les chapitres" }),
+        chaps.length ? lc : el("p", { class: "av-note", text: "Aucun chapitre prêt pour cette classe." }),
+        el("h3", { class: "av-sous-titre", text: "Questions par joueur" }),
+        segmentsDefi("Questions par joueur", [{ id: 5, nom: "5" }, { id: 8, nom: "8" }, { id: 10, nom: "10" }], nb, function (v) { nb = v; dessiner(); }),
+        lancer
+      ]);
+    }
+    dessiner();
+  }
+  function vueDuoJeu() {
+    var d = duo;
+    app.innerHTML = "";
+    var ecran = ecranAventure("av-nuit jeu duo-jeu");
+    var quitter = el("button", { class: "av-btn-rond", type: "button", "aria-label": "Arrêter la partie" });
+    quitter.innerHTML = icone("fermer");
+    quitter.addEventListener("click", function () {
+      confirmer("Arrêter la partie ?", "Le score de cette partie ne sera pas gardé.", "Arrêter", function () { duo = null; location.hash = "#/niveau/" + d.niveau; });
+    });
+    var scores = el("div", { class: "duo-scores", "aria-live": "polite" });
+    var haut = el("div", { class: "jeu-haut duo-haut" }, [quitter, scores]);
+    var corps = el("div", { class: "jeu-corps" });
+    var pied = el("div", { class: "jeu-pied" });
+    ajouter(ecran, [haut, corps, pied]);
+    var continuer = null;
+    surToucheVue = function (e) { if (e.key === "Enter" && continuer && document.activeElement && document.activeElement.tagName !== "BUTTON") { e.preventDefault(); continuer(); } };
+    function majScores() {
+      scores.innerHTML = "";
+      d.joueurs.forEach(function (j, k) {
+        var points = el("span", { class: "duo-points", "aria-hidden": "true" });
+        var prevues = Math.max(d.nb, j.resultats.length);
+        for (var i = 0; i < prevues; i++) points.appendChild(el("i", { class: i < j.resultats.length ? (j.resultats[i] ? "bien" : "mal") : "" }));
+        var b = el("div", { class: "duo-joueur" + (k === d.tour && d.enCours ? " actif" : ""), "aria-label": j.nom + " : " + pluriel(j.score, "point") }, [
+          el("span", { class: "duo-nom", text: j.nom }), el("strong", { text: String(j.score) }), points
+        ]);
+        b.style.setProperty("--c", j.c);
+        scores.appendChild(b);
+      });
+    }
+    // l'écran « passe le téléphone » : la personne suivante prend la main avant de voir sa question
+    function annonceTour() {
+      continuer = null;
+      majScores();
+      corps.innerHTML = "";
+      pied.innerHTML = "";
+      var j = d.joueurs[d.tour];
+      var carte = el("div", { class: "duo-tour" }, [
+        el("p", { class: "duo-passe", text: d.pos === 0 ? "Pour commencer :" : "Passe le téléphone à" }),
+        el("h2", { text: j.nom }),
+        el("p", { class: "duo-numero", text: d.departage ? "Question de départage" : "Question " + (j.resultats.length + 1) + " sur " + d.nb })
+      ]);
+      carte.style.setProperty("--c", j.c);
+      corps.appendChild(carte);
+      var go = el("button", { class: "jeu-valider", type: "button", text: "À moi de jouer !" });
+      go.addEventListener("click", poser);
+      continuer = poser;
+      pied.appendChild(go);
+      go.focus({ preventScroll: true });
+    }
+    function poser() {
+      continuer = null;
+      var q = d.questions[d.pos], j = d.joueurs[d.tour];
+      corps.innerHTML = "";
+      pied.innerHTML = "";
+      corps.scrollTop = 0;
+      var bandeau = el("div", { class: "duo-bandeau", text: "À toi, " + j.nom });
+      bandeau.style.setProperty("--c", j.c);
+      var zone = el("div", { class: "jeu-question" }, bandeau);
+      corps.appendChild(zone);
+      arreterLecture();
+      RENDUS[q.type]({ d: "histoire" }, q, zone, pied, function (juste, extra) { repondre(q, juste, extra || {}); });
+      zone.__question = q; // pour les tests automatiques
+      zone.insertBefore(boutonLire(zone, "Écouter la question"), zone.firstChild);
+      var focus = zone.querySelector("input:not([type=range]), button:not(.jeu-lire), input, [tabindex]");
+      if (focus) focus.focus({ preventScroll: true });
+    }
+    function repondre(q, juste, extra) {
+      var j = d.joueurs[d.tour], autre = d.joueurs[1 - d.tour];
+      j.resultats.push(!!juste);
+      if (juste) j.score++;
+      son(juste ? "ok" : "ko");
+      majScores();
+      var feuille = el("div", { class: "jeu-retour " + (juste ? "bien" : "mal"), role: "status" });
+      var h = el("h3");
+      h.innerHTML = icone(juste ? "coche" : "fermer");
+      h.appendChild(document.createTextNode(juste ? "Un point pour " + j.nom + " !" : "Raté…"));
+      feuille.appendChild(h);
+      if (!juste && q.bonneTexte !== undefined && q.bonneTexte !== null && q.type !== "legende") feuille.appendChild(el("p", { class: "jeu-bonne" }, ["Réponse : ", el("strong", { text: q.bonneTexte })]));
+      else if (!juste && q.bonne && q.type !== "paires") feuille.appendChild(el("p", { class: "jeu-bonne" }, ["Réponse : ", el("strong", { text: q.bonne })]));
+      var expl = extra.expl || q.expl;
+      if (expl) feuille.appendChild(el("p", { class: "jeu-expl", text: expl }));
+      var dernier = d.pos + 1 >= d.questions.length;
+      var btn = el("button", { class: "jeu-continuer", type: "button", text: dernier ? "Voir le résultat" : "Au tour de " + autre.nom });
+      continuer = function () {
+        continuer = null;
+        d.pos++;
+        d.tour = 1 - d.tour;
+        if (d.pos >= d.questions.length) fin(); else annonceTour();
+      };
+      btn.addEventListener("click", continuer);
+      feuille.appendChild(btn);
+      feuille.insertBefore(boutonLire(feuille, "Écouter la correction"), feuille.firstChild);
+      pied.innerHTML = "";
+      pied.appendChild(feuille);
+      arreterLecture();
+      annoncer(h.textContent + " " + (expl || ""));
+      btn.focus({ preventScroll: true });
+    }
+    function fin() {
+      continuer = null;
+      var a = d.joueurs[0], b = d.joueurs[1];
+      var egalite = a.score === b.score, gagnant = a.score > b.score ? a : b;
+      d.enCours = !egalite ? false : d.enCours;
+      majScores();
+      corps.innerHTML = "";
+      pied.innerHTML = "";
+      son("fin");
+      var medaille = el("div", { class: "duo-medaille", "aria-hidden": "true" });
+      medaille.innerHTML = symbole(egalite ? "etoile" : "medaille");
+      var bloc = el("div", { class: "jeu-fin duo-fin" }, [
+        medaille,
+        el("h2", { text: egalite ? "Égalité !" : gagnant.nom + " gagne !" }),
+        el("p", { class: "duo-final" }, [
+          el("span", { text: a.nom + " " }), el("strong", { text: a.score + " – " + b.score }), el("span", { text: " " + b.nom })
+        ]),
+        el("p", { text: egalite ? "Une question chacun pour vous départager ?" : "Bravo à tous les deux : chaque erreur corrigée, c'est une notion de mieux retenue." })
+      ]);
+      if (!egalite) bloc.style.setProperty("--c", gagnant.c);
+      corps.appendChild(bloc);
+      if (!egalite) confettis(bloc);
+      var boutons = [];
+      if (egalite) {
+        var dep = el("button", { class: "jeu-continuer", type: "button", text: "Départager" });
+        dep.addEventListener("click", function () {
+          var plus = questionsDuo(d.niveau, d.ids, 2);
+          if (plus.length < 2) { d.enCours = false; fin(); return; }
+          d.questions = d.questions.concat(plus);
+          d.departage = true;
+          d.tour = d.premier;
+          annonceTour();
+        });
+        boutons.push(dep);
+      }
+      var revanche = el("button", { class: egalite ? "jeu-secondaire" : "jeu-continuer", type: "button", text: "Revanche" });
+      revanche.addEventListener("click", function () {
+        var p = nouvellePartieDuo(d.niveau, d.ids, d.joueurs.map(function (j) { return j.nom; }), d.nb, 1 - d.premier);
+        if (!p) return;
+        duo = p;
+        vueDuoJeu();
+      });
+      boutons.push(revanche);
+      boutons.push(el("button", { class: "jeu-secondaire", type: "button", text: "Changer les réglages", onclick: function () { duo = null; app.innerHTML = ""; vueDuoReglages(d.niveau); } }));
+      pied.appendChild(el("div", { class: "jeu-fin-btns" }, boutons));
+      boutons[0].focus({ preventScroll: true });
+    }
+    if (d.pos >= d.questions.length) fin(); else annonceTour();
   }
 
   // ---------- Je prépare mon contrôle : une petite séance par jour jusqu'au jour J ----------

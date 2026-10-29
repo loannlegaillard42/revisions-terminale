@@ -9,6 +9,7 @@
    figures  { titre, sous, nb, items: [{ txt, type: "ponctuel" | "lineaire" | "surfacique", fig, expl }], legende: { sujet, parties: [{ titre, items }] } }
    Les extraits de textes sont courts et fidèles ; les traductions sont indiquées comme telles. */
 const METHODE = {
+  titre: "La méthode du bac",
   fiches: [
     {
       id: "composition", titre: "La composition", icone: "essentiel",

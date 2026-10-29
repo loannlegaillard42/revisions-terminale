@@ -1,5 +1,5 @@
 # Construit index.html à partir du moteur de la boîte à outils du lycée (rituels/reviser.html du dépôt Cahier-de-progression),
-# sans espace professeur ni défi de classe, avec la méthode du bac (outils/terminale/methode-vue.js et methode-css.txt).
+# sans espace professeur ni défi de classe ; la méthode du bac et le duo viennent du moteur.
 # Usage : python3 outils/terminale/fork-terminale.py ../Cahier-de-progression/rituels/reviser.html
 import os, re, sys
 ICI = os.path.dirname(os.path.abspath(__file__))
@@ -17,7 +17,7 @@ s = re.sub(r"<title>.*?</title>", "<title>Réviser la Terminale — Histoire-Gé
 s = re.sub(r'<meta name="description" content="[^"]*" />', '<meta name="description" content="Réviser l\'histoire-géographie de Terminale générale : fiches, cartes mémoire, quiz, mode aventure et méthode du bac." />', s, count=1)
 rep('href="../icon-192.png"', 'href="icon-192.png"', 2)
 rep('<script src="questions.js"></script>\n', '')
-rep('<script src="../vendor/qrcode-generator-1.4.4.js"></script>', '<script src="methode.js"></script>\n<script src="vendor/qrcode-generator-1.4.4.js"></script>')
+rep('<script src="../vendor/qrcode-generator-1.4.4.js"></script>', '<script src="vendor/qrcode-generator-1.4.4.js"></script>')
 rep('<a class="marque" href="#/">Réviser <small>Histoire-Géo</small></a>', '<a class="marque" href="#/">Réviser <small>Terminale</small></a>')
 rep('"Périodes, siècles, dates, cartes"', '"Dates, présidents, organisations, cartes"')
 # des clés de stockage propres à ce site (même domaine que la boîte à outils du lycée)
@@ -39,11 +39,7 @@ rep('    app.appendChild(el("div", { class: "etiq", text: "Ma classe" }));\n    
     '    if (NIVEAUX.length > 1) app.appendChild(el("div", { class: "etiq", text: "Ma classe" }));\n    var choix = el("div", { class: "choix", role: "group", "aria-label": "Ma classe" });')
 rep('      }));\n    });\n    app.appendChild(choix);\n\n    if (!niveau) {', '      }));\n    });\n    if (NIVEAUX.length > 1) app.appendChild(choix);\n\n    if (!niveau) {')
 rep('    if (total) {\n      app.appendChild(el("p", { class: "avancement"', '    if (total && chaps.length < total) {\n      app.appendChild(el("p", { class: "avancement"')
-# la méthode du bac, sur l'accueil et dans les adresses
-rep('    var parcours = aventureDispo(niveau) ? entreesParcours(niveau) : null;\n    if (parcours) app.appendChild(parcours);',
-    '    app.appendChild(entreeMethode());\n    var parcours = aventureDispo(niveau) ? entreesParcours(niveau) : null;\n    if (parcours) app.appendChild(parcours);')
-rep('    if (p[0] === "carte") return { vue: "carte", niveau: p[1] };', '    if (p[0] === "carte") return { vue: "carte", niveau: p[1] };\n    if (p[0] === "methode") return { vue: "methode", sous: p[1], x: p[2] };')
-rep('    if (r.vue === "verifier") { vueVerifierCarte(r.code); return; }', '    if (r.vue === "verifier") { vueVerifierCarte(r.code); return; }\n    if (r.vue === "methode") { vueMethode(r.sous, r.x); return; }')
+# la méthode du bac et le duo viennent du moteur (module « méthode », données dans methode.js)
 # titres d'onglet
 rep('document.title = "Réviser — Histoire-Géographie";', 'document.title = "Réviser la Terminale — Histoire-Géographie";')
 s = s.replace('" — Réviser";', '" — Réviser la Terminale";')
@@ -54,10 +50,5 @@ rep('pour que ton professeur sache que c\'est la tienne.', 'pour qu\'on sache qu
 # difficulté de la Terminale
 rep('    "1ere": { nom: "Lycée +", nb: 8, defi: 12, options: 4, dates: 5, ordre: 5, points: 6, carte: 2, experte: 1, saisie: 2, indices: 1, proches: true, aide: 1, legende: 4 }',
     '    "1ere": { nom: "Lycée +", nb: 8, defi: 12, options: 4, dates: 5, ordre: 5, points: 6, carte: 2, experte: 1, saisie: 2, indices: 1, proches: true, aide: 1, legende: 4 },\n    "Tle":  { nom: "Terminale", nb: 8, defi: 12, options: 4, dates: 5, ordre: 5, points: 6, carte: 2, experte: 1, saisie: 2, indices: 1, proches: true, aide: 1, legende: 4 }')
-# le module « Méthode du bac » (défini dans methode-vue.js, inséré ici)
-vue = open(os.path.join(ICI, "methode-vue.js"), encoding="utf-8").read()
-rep('\n  // ---------- Je prépare mon contrôle : une petite séance par jour jusqu\'au jour J ----------', vue + '\n  // ---------- Je prépare mon contrôle : une petite séance par jour jusqu\'au jour J ----------')
-css = open(os.path.join(ICI, "methode-css.txt"), encoding="utf-8").read()
-rep('  /* carte d\'aventurier */', css + '  /* carte d\'aventurier */')
 open(DST, "w", encoding="utf-8").write(s)
 print("index.html :", len(s), "caractères")
