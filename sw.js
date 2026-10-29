@@ -1,7 +1,7 @@
 // Service worker du site : la page, les fiches et la méthode restent disponibles sans connexion, après une première visite.
 // - La page : le réseau d'abord (3 s au plus), le cache en secours, pour avoir toujours la dernière version.
 // - Les fiches (cours.js, cartes.js…), les images et les polices : le cache d'abord, mis à jour en arrière-plan.
-const CACHE = "terminale-hg-v2";
+const CACHE = "terminale-hg-v3";
 const BASE = ["./", "./index.html", "./cours.js", "./cartes.js", "./reperes.js", "./methode.js", "./vendor/qrcode-generator-1.4.4.js", "./icon-192.png"];
 const POLICES = /^https:\/\/fonts\.(googleapis|gstatic)\.com\//;
 
