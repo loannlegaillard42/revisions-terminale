@@ -42,6 +42,7 @@ const CLASSES = [
 const COURS = [
   {
     id: "tle-h1-c1", n: "Tle", d: "histoire", carte: "monde",
+    monument: { type: "temple", nom: "La Bourse de New York, à Wall Street" },
     theme: "Thème 1 · Fragilités des démocraties, totalitarismes et Seconde Guerre mondiale (1929-1945)",
     num: "Chapitre 1",
     titre: "L'impact de la crise de 1929 : déséquilibres économiques et sociaux",
@@ -300,6 +301,7 @@ const COURS = [
   },
   {
     id: "tle-h1-c2", n: "Tle", d: "histoire", carte: "europe-large",
+    monument: { type: "chateau", teinte: "brique", toit: "turquoise", nom: "Le Kremlin, à Moscou" },
     theme: "Thème 1 · Fragilités des démocraties, totalitarismes et Seconde Guerre mondiale (1929-1945)",
     num: "Chapitre 2",
     titre: "Les régimes totalitaires",
@@ -538,6 +540,7 @@ const COURS = [
   },
   {
     id: "tle-h1-c3", n: "Tle", d: "histoire", carte: ["europe-large", "monde"],
+    monument: { type: "littoral", nom: "Les plages de Normandie, lieu du Débarquement" },
     theme: "Thème 1 · Fragilités des démocraties, totalitarismes et Seconde Guerre mondiale (1929-1945)",
     num: "Chapitre 3",
     titre: "La Seconde Guerre mondiale",
@@ -891,6 +894,7 @@ const COURS = [
   },
   {
     id: "tle-h2-c1", n: "Tle", d: "histoire", carte: ["europe-large", "monde"],
+    monument: { type: "metropole", nom: "Le siège de l'ONU, à New York" },
     theme: "Thème 2 · La multiplication des acteurs internationaux dans un monde bipolaire (de 1945 au début des années 1970)",
     num: "Chapitre 4",
     titre: "La fin de la Seconde Guerre mondiale et les débuts d'un nouvel ordre mondial",
@@ -1149,6 +1153,7 @@ const COURS = [
   },
   {
     id: "tle-h2-c2", n: "Tle", d: "histoire", carte: ["asie-est", "monde"],
+    monument: { type: "barrage", nom: "Le barrage d'Assouan, en Égypte" },
     theme: "Thème 2 · La multiplication des acteurs internationaux dans un monde bipolaire (de 1945 au début des années 1970)",
     num: "Chapitre 5",
     titre: "Une nouvelle donne géopolitique : bipolarisation et émergence du tiers-monde",
@@ -1440,6 +1445,7 @@ const COURS = [
   },
   {
     id: "tle-h2-c3", n: "Tle", d: "histoire", carte: ["mediterranee", "monde"],
+    monument: { type: "palais", nom: "Le palais de l'Élysée, à Paris" },
     theme: "Thème 2 · La multiplication des acteurs internationaux dans un monde bipolaire (de 1945 au début des années 1970)",
     num: "Chapitre 6",
     titre: "La France : une nouvelle place dans le monde",
@@ -1675,6 +1681,7 @@ const COURS = [
   },
   {
     id: "tle-h3-c1", n: "Tle", d: "histoire", carte: ["europe-large", "monde"],
+    monument: { type: "usine", nom: "Une raffinerie, au temps des chocs pétroliers" },
     theme: "Thème 3 · Les remises en cause économiques, politiques et sociales des années 1970 à 1991",
     num: "Chapitre 7",
     titre: "La modification des grands équilibres économiques et politiques mondiaux",
@@ -1948,6 +1955,7 @@ const COURS = [
   },
   {
     id: "tle-h3-c2", n: "Tle", d: "histoire", carte: "france",
+    monument: { type: "hoteldeville", nom: "Une mairie, au temps de la décentralisation (1982)" },
     theme: "Thème 3 · Les remises en cause économiques, politiques et sociales des années 1970 à 1991",
     num: "Chapitre 8",
     titre: "Un tournant social, politique et culturel, la France de 1974 à 1988",
@@ -2206,6 +2214,7 @@ const COURS = [
   },
   {
     id: "tle-h4-c1", n: "Tle", d: "histoire", carte: ["europe-large", "monde"],
+    monument: { type: "villedense", nom: "Une métropole d'un pays émergent" },
     theme: "Thème 4 · Le monde, l'Europe et la France depuis les années 1990, entre coopérations et conflits",
     num: "Chapitre 9",
     titre: "Nouveaux rapports de puissance et enjeux mondiaux",
@@ -2433,6 +2442,7 @@ const COURS = [
   },
   {
     id: "tle-h4-c2", n: "Tle", d: "histoire", carte: "europe-large",
+    monument: { type: "beffroi", nom: "La Grand-Place de Bruxelles, capitale européenne" },
     theme: "Thème 4 · Le monde, l'Europe et la France depuis les années 1990, entre coopérations et conflits",
     num: "Chapitre 10",
     titre: "La construction européenne entre élargissement, approfondissement et remises en question",
@@ -2624,6 +2634,7 @@ const COURS = [
   },
   {
     id: "tle-h4-c3", n: "Tle", d: "histoire", carte: "france",
+    monument: { type: "temple", drapeau: ["#2B4C9B", "#FFFFFF", "#D43A3A"], nom: "Le Palais-Bourbon, siège de l'Assemblée nationale" },
     theme: "Thème 4 · Le monde, l'Europe et la France depuis les années 1990, entre coopérations et conflits",
     num: "Chapitre 11",
     titre: "La République française",
@@ -2801,6 +2812,7 @@ const COURS = [
   },
   {
     id: "tle-g1", n: "Tle", d: "geo", carte: ["france", "asie-est", "monde"],
+    monument: { type: "port", nom: "Un grand port de commerce" },
     theme: "Thème 1 · Mers et océans : au cœur de la mondialisation",
     num: "Questions 1 et 2 · question spécifique",
     titre: "Mers et océans : vecteurs essentiels de la mondialisation, entre appropriation, protection et liberté de circulation",
@@ -3089,6 +3101,7 @@ const COURS = [
   },
   {
     id: "tle-g2", n: "Tle", d: "geo", carte: ["europe-large", "monde"],
+    monument: { type: "contrastes", nom: "Des territoires inégalement intégrés à la mondialisation" },
     theme: "Thème 2 · Dynamiques territoriales, coopérations et tensions dans la mondialisation",
     num: "Questions 1 et 2 · question spécifique",
     titre: "Des territoires inégalement intégrés à la mondialisation ; coopérations, tensions et régulations",
@@ -3293,6 +3306,7 @@ const COURS = [
   },
   {
     id: "tle-g3", n: "Tle", d: "geo", carte: ["france", "europe-large"],
+    monument: { type: "ferme", nom: "Une région rurale aidée par l'Union européenne" },
     theme: "Thème 3 · L'Union européenne dans la mondialisation : des dynamiques complexes",
     num: "Questions 1 et 2 · question spécifique",
     titre: "Des politiques européennes entre compétitivité et cohésion des territoires ; l'UE, un espace plus ou moins ouvert sur le monde",
@@ -3497,6 +3511,7 @@ const COURS = [
   },
   {
     id: "tle-g4", n: "Tle", d: "geo", carte: "france",
+    monument: { type: "metropole", arche: true, nom: "La Défense, à Paris" },
     theme: "Thème conclusif · La France et ses régions dans l'Union européenne et dans la mondialisation",
     num: "Thème conclusif",
     titre: "Lignes de force et recompositions du territoire français",
