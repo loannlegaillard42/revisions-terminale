@@ -2,7 +2,7 @@
 // - La page : le réseau d'abord (3 s au plus), le cache en secours, pour avoir toujours la dernière version.
 // - Les fiches (cours.js, cartes.js…) : le réseau d'abord aussi, pour avoir tout de suite la dernière version.
 // - Les images et les polices : le cache d'abord, mis à jour en arrière-plan.
-const CACHE = "terminale-hg-v12";
+const CACHE = "terminale-hg-v13";
 const BASE = ["./", "./index.html", "./cours.js", "./cartes.js", "./reperes.js", "./methode.js", "./vendor/qrcode-generator-1.4.4.js", "./icon-192.png"];
 const POLICES = /^https:\/\/fonts\.(googleapis|gstatic)\.com\//;
 
